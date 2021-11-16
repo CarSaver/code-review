@@ -1,19 +1,16 @@
 package com.carsaver.codereview.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class User {
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
     private String firstName;
     private String lastName;
     private String email;
-    public Boolean enabled;
+    private Boolean enabled;
     private String city;
 
     public String getCity() {
@@ -54,7 +51,7 @@ public class User {
         return lastName;
     }
 
-        public void setLastName(String lastName) {
+    public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
@@ -69,4 +66,9 @@ public class User {
     public boolean isEnabled() {
         return enabled;
     }
+
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
+    }
+
 }
