@@ -32,3 +32,9 @@ Username: admin
 Password: password
 
 ---
+
+**Notes from the Reviewer**
+I've added some comments on what changes I put in place throughout the code.  Additionally, there need to be tests 
+written to exercise the business logic for accuracy.  I would specifically like to see tests on the createUser and  
+updateUserLocation endpoints within the UserApiController class, as well as the updateEmail and getNames methods on UserService 
+(assuming those are still necessary)
