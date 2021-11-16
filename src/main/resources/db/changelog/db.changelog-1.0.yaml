@@ -22,12 +22,13 @@ databaseChangeLog:
         - column:
             name: email
             type: VARCHAR(255)
+        # Add city, zip_code, and enabled columns with proper type
         - column:
             name: city
             type: VARCHAR(255)
         - column:
             name: zip_code
-            type: VARCHAR(255)
+            type: int
         - column:
             name: enabled
             type: BOOLEAN
@@ -48,6 +49,7 @@ databaseChangeLog:
                     - column:
                           name: email
                           value: "josh.colbert@carsaver.com"
+                    # Add an enabled value
                     - column:
                           name: enabled
                           value: true

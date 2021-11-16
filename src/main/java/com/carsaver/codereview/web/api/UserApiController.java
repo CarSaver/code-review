@@ -11,9 +11,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Optional;
 
+// Switch from @Controller to @RestController because there are no thymyleaf templates.  The alternative would be to
+// create those templates
 @RestController
 public class UserApiController {
 
+    //I would typically have the repository only visible by the service layer, and have the service available in the
+    // controllers, but there is no real business logic in the service layer that is used (there is business logic,
+    // but those methods are unused), so for consistency with the other controller, I am exposing the repository
     @Autowired
     private UserRepository userRepository;
 
@@ -24,7 +29,7 @@ public class UserApiController {
     private ZipCodeLookupService zipCodeLookupService;
 
     @GetMapping("/users/create")
-    public User createuser(@RequestParam String firstName, @RequestParam String lastName, @RequestParam String email) {
+    public User createUser(@RequestParam String firstName, @RequestParam String lastName, @RequestParam String email) {
         User newUser = new User();
         newUser.setFirstName(firstName);
         newUser.setLastName(lastName);
@@ -65,6 +70,8 @@ public class UserApiController {
             throw new RuntimeException("Zip Codes are 5 digits");
 
         user.setZipCode(zipCode);
+
+        // Only run the zipCodeLookup if the city is not present
         if (Optional.ofNullable(city).isPresent()) {
             user.setCity(city);
         } else {

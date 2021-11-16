@@ -5,11 +5,13 @@ import javax.persistence.*;
 @Entity
 public class User {
     @Id
+    // Fixed ID creation. Was failing due to the hibernate sequence table not existing
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
     private String firstName;
     private String lastName;
     private String email;
+    // make field private and add setter method
     private Boolean enabled;
     private String city;
 
@@ -67,6 +69,7 @@ public class User {
         return enabled;
     }
 
+    // Added enabled setter so field can be private
     public void setEnabled(Boolean enabled) {
         this.enabled = enabled;
     }
