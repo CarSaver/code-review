@@ -16,7 +16,7 @@ Keep an eye out for code smells, potential errors, code style inconsistencies et
 exercise is to **spawn conversation**, not necessarily to test your ability to "find all the bugs".  Some things
 you may find are subjective, and that's okay.  We'd love to hear your opinion on those things.
 
-Please pull down the project and zip your project code and return to us for review.
+Please pull down the project and create a pull request for review.
 
 ---
 **NOTE**
